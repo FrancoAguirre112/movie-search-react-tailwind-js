@@ -11,7 +11,7 @@ function MovieDetails() {
   }
 
   return (
-    <div className="my-5 grid grid-rows-[60%_40%] gap-2 space-y-4 container px-2 mx-auto md:grid-cols-[40%_60%]">
+    <div className="my-5 pb-44 grid grid-rows-[60%_40%] gap-2 space-y-4 container px-2 mx-auto md:grid-cols-[40%_60%]">
       <img className="hidden rounded-lg md:flex" src={movieDetails.poster} alt={`a poster of the movie ${movieDetails.title}`} />
       <div
         className="h-full bg-cover md:bg-[center_-15rem] rounded-lg md:hidden"
