@@ -1,17 +1,11 @@
-import { Link } from "react-router-dom";
-
-function Logo({ color }) {
-  return (
-      <Link to="/" className={`text-${color} rounded-full p-2 border-4 border-white hover:bg-white hover:text-black transition-colors`}>
-        <div>
-          <svg
+<svg
             xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
-            strokeWidth="1"
+            strokeWidth="2"
             stroke="currentColor"
-            fill="none"
+            fill="white"
             strokeLinecap="round"
             strokeLinejoin="round"
           >
@@ -25,9 +19,3 @@ function Logo({ color }) {
             <path d="M16 8l4 0"></path>
             <path d="M16 16l4 0"></path>
           </svg>
-        </div>
-      </Link>
-  );
-}
-
-export default Logo;

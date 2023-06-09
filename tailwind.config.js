@@ -8,7 +8,11 @@ export default {
       lg: '976px',
       xl: '1440px',
     },
-    extend: {},
+    extend: {
+      backgroundColor: {
+        main: '#1B1B1B',
+      },
+    },
   },
   plugins: [],
 };

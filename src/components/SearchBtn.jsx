@@ -1,11 +1,13 @@
-function SearchBtn() {
+import { Link } from 'react-router-dom';
+
+function SearchBtn( { hiddenInMobile = true } ) {
   return (
-    <a
-      href="/search"
-      className="hidden p-3 px-6 pt-2 font-bold text-white text-center bg-orange-500 rounded-full align-baseline hover:bg-orange-700 md:block"
+    <Link
+      to="/search"
+      className={`${hiddenInMobile ? 'hidden' : 'block'} p-3 font-bold text-black text-center border-2 bg-white rounded-full align-baseline hover:bg-transparent hover:text-white transition-all md:block`}
     >
       Search
-    </a>
+    </Link>
   );
 }
 

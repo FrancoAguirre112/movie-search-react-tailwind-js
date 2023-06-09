@@ -1,5 +1,5 @@
-import employees from '../assets/employees.jpg';
-import TestimonialCard from './TestimonialCard';
+import heroWorking from '../assets/heroImageWorking.png';
+import TestimonialCard from '../components/TestimonialCard';
 import testimonial1 from '../assets/testimonial1.png';
 import testimonial2 from '../assets/testimonial2.png';
 import testimonial3 from '../assets/testimonial3.png';
@@ -7,13 +7,13 @@ import testimonial3 from '../assets/testimonial3.png';
 const AboutUs = () => {
   return (
     <>
-      <section id="about">
-        <div className="container grid md:grid-cols-2 gap-4 mx-auto px-6 my-10  space-y-0 md:space-x-6">
+      <section id="about" className="container grid md:grid-cols-2 gap-4 mx-auto px-6 my-10  space-y-0">
+
           <div className="space-y-10 order-2 md:order-1">
-            <h1 className="max-w-full text-4xl font-bold text-center md:text-5-xl md:text-left">
+            <h1 className="text-4xl font-bold text-center md:text-5-xl md:text-left">
               Streamlined Movie Search Made Easy
             </h1>
-            <p className="text-md text-center text-gray-600 md:text-left">
+            <p className="text-md text-center text-gray-300 md:text-left">
               We are a passionate team of movie enthusiasts dedicated to
               simplifying your movie search experience. Our platform empowers
               you to effortlessly find movies by title, ensuring you never miss
@@ -22,18 +22,18 @@ const AboutUs = () => {
               easier
             </p>
           </div>
-          <div className="order-1">
+          <div className="order-1 w-full flex justify-center">
             <img
-              src={employees}
+              src={heroWorking}
               alt="an image of people working"
-              className="rounded-full "
+              className='w-[60%]'
             />
           </div>
-        </div>
+  
       </section>
 
       <section id="team">
-        <div className="container mx-auto px-6 mt-10 md:space-x-6 my-10 ">
+        <div className="container mx-auto px-6 my-10 mt-10 ">
           <h1 className="text-4xl font-bold text-center md:text-5-xl ">
             Meet the Team
           </h1>
