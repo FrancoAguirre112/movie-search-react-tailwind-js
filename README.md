@@ -1,6 +1,6 @@
 # Movie Search Website
 
-![Banner for the Movie Search website] (https://imgur.com/a/vvb0abn)
+![Banner for the Movie Search website](https://i.imgur.com/Mn97oZd.png)
 
 Movie Search is a web application built with React, Tailwind CSS, and JavaScript. It allows users to search for movies, access their details, and add them to favorites. The app incorporates various functionalities, including form handling with React Hook Form, fake login and authentication using contexts, movie search by title using the OMDB API, retrieving movie details from the API, and safe routing with React Router DOM.
 
