@@ -32,7 +32,6 @@ function MovieDetails() {
           <h2 className="text-gray-400">Protagonists: </h2>
           <p className="text-white">{movieDetails.actors}</p>
         </div>
-        <button className="p-3 font-bold text-black text-center border-2 bg-white rounded-full align-baseline hover:bg-transparent hover:text-white transition-all md:block">Add to favorites</button>
       </div>
     </div>
   );

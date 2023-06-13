@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import { useAuthContext } from "../../contexts/authContext";
 
 export default function PrivateRoute() {
@@ -7,7 +7,7 @@ export default function PrivateRoute() {
   if (!isAuthenticated) {
     return (
       <div className="flex justify-center items-center">
-        <h1>Please Log-in to view this content</h1>
+        <h1>Please log in to view this content</h1>
       </div>
     );
   }

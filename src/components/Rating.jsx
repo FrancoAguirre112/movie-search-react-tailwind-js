@@ -1,5 +1,5 @@
-import fullStarImg from '../assets/fullStar.svg';
-import halfStarImg from '../assets/halfStar.svg';
+import fullStarImg from '../assets/icons/fullStar.svg';
+import halfStarImg from '../assets/icons/halfStar.svg';
 
 export default function RenderStars({rating}) {
     const roundedRating = Math.round(Number(rating) * 2) / 2;

@@ -22,6 +22,13 @@ export function useMovieDetails(movieId) {
     if (movieId) {
       fetchMovieDetails();
     }
+
+    return () => {
+      // Clean up the effect if the component is unmounted or if the movieId changes
+      setIsLoading(false);
+      setMovieDetails(null);
+      setError(null);
+    };
   }, [movieId]);
 
   return { movieDetails, isLoading, error };

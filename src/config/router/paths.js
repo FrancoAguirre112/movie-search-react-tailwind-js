@@ -1,7 +1,7 @@
-export const PRIVATE = '/private';
-export const FAVORITES = '/favorites';
-export const ABOUT_US = '/about';
-export const MOVIE_LIST = '/search';
-export const MOVIE_DETAILS = '/movie/:id'
-
-//TODO: Object for routes
+export const routes = {
+    PRIVATE: '/private',
+    FAVORITES: '/favorites',
+    ABOUT_US: '/about',
+    MOVIE_LIST: '/search',
+    MOVIE_DETAILS: '/movie/:id',
+  };

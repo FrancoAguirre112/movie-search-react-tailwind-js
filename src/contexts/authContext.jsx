@@ -1,32 +1,33 @@
-import { useContext, useState, createContext, useCallback, useMemo } from "react";
+import { useContext, useState, createContext, useCallback, useMemo } from 'react';
 
 const AUTH_MOVIES = 'AUTH_MOVIES';
 
 const AuthContext = createContext(null);
 
 export const AuthContextProvider = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem(AUTH_MOVIES) ?? false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem(AUTH_MOVIES) === 'true'
+  );
 
+  const login = useCallback(() => {
+    localStorage.setItem(AUTH_MOVIES, 'true');
+    setIsAuthenticated(true);
+  }, []);
 
-    const login = useCallback(function() {
-        localStorage.setItem(AUTH_MOVIES, true);
-        setIsAuthenticated(true);
-    }, []);
+  const logout = useCallback(() => {
+    localStorage.removeItem(AUTH_MOVIES);
+    setIsAuthenticated(false);
+  }, []);
 
-    const logout = useCallback(function() {
-        localStorage.removeItem(AUTH_MOVIES);
-        setIsAuthenticated(false);
-    }, []);
+  const value = useMemo(() => ({
+    login,
+    logout,
+    isAuthenticated,
+  }), [login, logout, isAuthenticated]);
 
-    const value = useMemo(() => ({
-        login,
-        logout,
-        isAuthenticated
-    }), [login, logout, isAuthenticated]);
-
-    return (<AuthContext.Provider value={value}> {children} </AuthContext.Provider>)
-}
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};
 
 export function useAuthContext() {
-    return useContext(AuthContext);
+  return useContext(AuthContext);
 }
