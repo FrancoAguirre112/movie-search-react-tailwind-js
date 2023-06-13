@@ -1,23 +1,22 @@
+import { useEffect } from "react";
 import { Movies } from "../components/Movies.jsx";
 import useMovies from "../hooks/useMovies";
-import { useSearch } from "../hooks/useSearch.js";
-import debounce from "just-debounce-it";
+import { useForm } from "react-hook-form";
 
 function MovieList() {
-  console.log("render");
-  const { search, updateSearch, error } = useSearch();
   const { movies, getMovies } = useMovies();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm();
 
-  const debouncedUpdateSearch = debounce(updateSearch, 500);
+  useEffect(() => {
+    getMovies("avengers");
+  }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!error) getMovies({ search });
-  };
-
-  const handleChange = (event) => {
-    const newSearch = event.target.value;
-    debouncedUpdateSearch(newSearch);
+  const onSubmit = (data) => {
+    if (isValid) getMovies(data.search);
   };
 
   return (
@@ -31,14 +30,24 @@ function MovieList() {
             </h1>
             <form
               className="md:space-x-1 grid grid-flow-col"
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmit(onSubmit)}
             >
               <input
-                id="search"
+                id="inputSearch"
                 type="text"
                 placeholder="Avengers, The Matrix, The Hunger Games..."
                 className="rounded-l-lg py-1 border-2 px-2 bg-gray-700"
-                onChange={handleChange}
+                {...register("search", {
+                  required: "Can't search for an empty movie",
+                  minLength: {
+                    value: 3,
+                    message: "The search should have at least 3 characters",
+                  },
+                  pattern: {
+                    value: /^(?!\d+$).*/,
+                    message: "Can't search for a movie with only a number",
+                  },
+                })}
               />
               <button
                 type="submit"
@@ -47,6 +56,7 @@ function MovieList() {
                 Search
               </button>
             </form>
+            {errors.search && <p className="text-red-600">{errors.search.message}</p>}
           </div>
         </section>
 

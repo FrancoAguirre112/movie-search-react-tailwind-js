@@ -9,34 +9,13 @@ import { useAuthContext } from '../contexts/authContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  
   const { logout, isAuthenticated } = useAuthContext();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const renderLoginButton = () => {
-    if (!isAuthenticated) {
-      return (
-        <button
-          className="block p-3 px-6 pt-2 font-bold text-white text-center border-2 rounded-full hover:bg-white hover:text-black transition-all"
-          onClick={() => setIsLoginOpen(true)}
-        >
-          Login
-        </button>
-      );
-    } else {
-      return (
-        <button
-          className="block p-3 px-6 pt-2 font-bold text-white border-2 text-center rounded-full align-baseline hover:bg-white hover:text-black"
-          onClick={logout}
-        >
-          Logout
-        </button>
-      );
-    }
-  };
 
   return (
     <header className="text-white flex justify-center">
@@ -78,14 +57,16 @@ const Navbar = () => {
 
         {/* Login button */}
         <div className='flex items-center justify-end mr-4'>
-          {renderLoginButton()}
+          {isAuthenticated ? (<button
+          className="block p-3 px-6 pt-2 font-bold text-white border-2 text-center rounded-full align-baseline hover:bg-white hover:text-black"
+          onClick={logout}
+        >
+          Logout
+        </button>) : (<Login />)}
+
         </div>
       </div>
-
-      {/* Login modal */}
-      <Modal open={isLoginOpen} onClose={() => setIsLoginOpen(false)}>
-        <Login />
-      </Modal>
+        
     </header>
   );
 };

@@ -7,11 +7,11 @@ function MovieDetails() {
   const { movieDetails } = useMovieDetails(id);
 
   if (!movieDetails) {
-    return <div>Loading...</div>;
+    return <div className="flex items-center justify-center">Loading...</div>;
   }
 
   return (
-    <div className="my-5 pb-44 grid grid-rows-[60%_40%] gap-2 space-y-4 container px-2 mx-auto md:grid-cols-[40%_60%]">
+    <div className="my-5 pb-56 grid grid-rows-[60%_40%] gap-2 space-y-4 container px-2 mx-auto md:grid-cols-[40%_60%] md:pb-0">
       <img className="hidden rounded-lg md:flex" src={movieDetails.poster} alt={`a poster of the movie ${movieDetails.title}`} />
       <div
         className="h-full bg-cover md:bg-[center_-15rem] rounded-lg md:hidden"
@@ -21,7 +21,7 @@ function MovieDetails() {
         <div className="h-full bg-gradient-to-t from-[#1B1B1B]"></div>
       </div>
 
-      <div className="flex flex-col space-y-1">
+      <div className="flex flex-col space-y-4">
         <h1 className="text-xl text-left font-bold">{movieDetails.title}</h1>
         <h2 className="text-gray-400">
           {movieDetails.year} | {movieDetails.rated} | {movieDetails.genre}
@@ -32,6 +32,7 @@ function MovieDetails() {
           <h2 className="text-gray-400">Protagonists: </h2>
           <p className="text-white">{movieDetails.actors}</p>
         </div>
+        <button className="p-3 font-bold text-black text-center border-2 bg-white rounded-full align-baseline hover:bg-transparent hover:text-white transition-all md:block">Add to favorites</button>
       </div>
     </div>
   );

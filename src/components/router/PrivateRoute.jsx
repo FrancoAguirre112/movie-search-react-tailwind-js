@@ -1,22 +1,16 @@
-import { Navigate, Outlet } from "react-router";
-import { useAuthContext } from '../../contexts/authContext';
-import Modal from '../Modal';
-import Login from '../../pages/Login';
+import { Outlet } from "react-router";
+import { useAuthContext } from "../../contexts/authContext";
 
-export default function PublicRoute() {
-    const { isAuthenticated } = useAuthContext();
+export default function PrivateRoute() {
+  const { isAuthenticated } = useAuthContext();
 
-    if (!isAuthenticated) {
-        return (
-            <Modal >
-                <Login />
-            </Modal>
-        );
-    }
-
+  if (!isAuthenticated) {
     return (
-        <div>
-            <Outlet />
-        </div>
+      <div className="flex justify-center items-center">
+        <h1>Please Log-in to view this content</h1>
+      </div>
     );
+  }
+
+  return <Outlet />;
 }
