@@ -1,10 +1,8 @@
 # Movie Search Website
-
-<div style="width: 100%;">
-  [![Banner for the Movie Search website](https://i.imgur.com/DXAG4m6.png)](https://movie-search-react-tailwind-js.vercel.app/)
-</div>
-
+<a href="https://example.com](https://movie-search-react-tailwind-js.vercel.app/" target="_blank"><img src="https://i.imgur.com/DXAG4m6.png" alt="Banner for the Movie Search website" width="100%" /></a>
 Movie Search is a web application built with React, Tailwind CSS, and JavaScript. It allows users to search for movies, access their details, and add them to favorites. The app incorporates various functionalities, including form handling with React Hook Form, fake login and authentication using contexts, movie search by title using the OMDB API, retrieving movie details from the API, and safe routing with React Router DOM.
+
+<a href="https://example.com](https://movie-search-react-tailwind-js.vercel.app/" target="_blank">Click here to visit the live website.</a>
 
 ## Features
 Forms with React Hook Forms: The app utilizes the React Hook Form library for efficient form handling. It provides validation and error handling for user input, ensuring that required fields are filled out correctly.
