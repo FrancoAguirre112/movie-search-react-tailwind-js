@@ -25,3 +25,7 @@ dist-ssr
 
 # Variables
 .env.local
+
+# Mockups
+
+/mockups
